@@ -54,6 +54,7 @@ public class StatsdClient {
 	public StatsdClient(InetAddress host, int port) throws IOException {
 		_address = new InetSocketAddress(host, port);
 		_channel = DatagramChannel.open();
+		_channel.connect(_address);
 	}
 
 	public boolean timing(String key, int value) {
